@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Esteban Martínez Henao — Content Strategist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0e0d0b;
+  --paper: #f5f0e8;
+  --cream: #ede8dc;
+  --rust: #c4532a;
+  --gold: #b8963e;
+  --muted: #6b6458;
+  --rule: #d4cdc0;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.5;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 3rem;background:rgba(245,240,232,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule);}
+.nav-logo{font-family:'DM Mono',monospace;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+.nav-right{display:flex;align-items:center;gap:2rem;}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--rust);}
+.nav-diag{color:var(--rust)!important;border-bottom:1px solid var(--rust);padding-bottom:1px;}
+.lang-toggle{display:flex;border:1px solid var(--rule);overflow:hidden;flex-shrink:0;}
+.lang-btn{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;padding:.38rem .7rem;background:transparent;border:none;color:var(--muted);cursor:pointer;transition:background .2s,color .2s;line-height:1;}
+.lang-btn.active{background:var(--ink);color:var(--paper);}
+.lang-btn:not(.active):hover{background:var(--cream);color:var(--ink);}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:72px;}
+.hero-left{padding:6rem 4rem 4rem 3rem;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--rule);position:relative;}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--rust);margin-bottom:1.5rem;opacity:0;animation:fadeUp .8s .2s forwards;}
+.hero-name{font-family:'Playfair Display',serif;font-size:clamp(3.2rem,5.5vw,5.8rem);font-weight:900;line-height:1;letter-spacing:-.02em;opacity:0;animation:fadeUp .8s .4s forwards;}
+.hero-name em{font-style:italic;color:var(--rust);}
+.hero-promise{font-family:'DM Sans',sans-serif;font-size:1rem;line-height:1.65;color:var(--muted);font-weight:300;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--rule);opacity:0;animation:fadeUp .8s .6s forwards;}
+.hero-cta{margin-top:2.5rem;display:flex;flex-direction:column;gap:.75rem;opacity:0;animation:fadeUp .8s .8s forwards;}
+.cta-row{display:flex;gap:.75rem;align-items:center;}
+.btn-primary{display:inline-block;background:var(--ink);color:var(--paper);padding:.8rem 1.8rem;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .2s;white-space:nowrap;}
+.btn-primary:hover{background:var(--rust);transform:translateY(-2px);}
+.btn-ghost{display:inline-block;border:1px solid var(--ink);color:var(--ink);padding:.8rem 1.8rem;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:background .2s,color .2s,transform .2s;white-space:nowrap;}
+.btn-ghost:hover{background:var(--ink);color:var(--paper);transform:translateY(-2px);}
+.btn-diag{display:inline-flex;align-items:center;gap:.55rem;background:transparent;border:1px solid var(--rust);color:var(--rust);font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.08em;padding:.8rem 1.4rem;cursor:pointer;transition:background .2s,color .2s,transform .2s;text-transform:uppercase;white-space:nowrap;}
+.btn-diag:hover{background:var(--rust);color:var(--paper);transform:translateX(3px);}
+.btn-diag-arrow{transition:transform .2s;}
+.btn-diag:hover .btn-diag-arrow{transform:translateX(3px);}
+.cta-note{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;}
+.deco-line{position:absolute;right:3rem;bottom:3rem;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--rule);writing-mode:vertical-rl;}
+.hero-right{padding:6rem 3rem 4rem 4rem;display:flex;flex-direction:column;justify-content:center;}
+.hero-summary{font-size:1.1rem;line-height:1.8;color:var(--ink);font-weight:300;opacity:0;animation:fadeUp .8s .5s forwards;}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:4rem;opacity:0;animation:fadeUp .8s .9s forwards;}
+.stat{border-top:2px solid var(--rust);padding-top:1rem;}
+.stat-num{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;line-height:1;}
+.stat-label{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.4rem;}
+
+/* ── SHARED SECTION ── */
+section{padding:6rem 3rem;}
+.section-header{display:flex;align-items:baseline;gap:1.5rem;margin-bottom:4rem;}
+.section-num{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--rust);letter-spacing:.1em;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,3rem);font-weight:700;line-height:1.1;letter-spacing:-.02em;}
+.section-rule{flex:1;height:1px;background:var(--rule);}
+
+/* ── SIGNALS ── */
+#signals{background:var(--ink);color:var(--paper);padding:5rem 3rem;}
+#signals .section-title{color:var(--paper);}
+#signals .section-num{color:var(--gold);}
+#signals .section-rule{background:rgba(245,240,232,.15);}
+.signals-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:1400px;margin:0 auto;}
+.signal-item{padding:2rem 2.5rem;border:1px solid rgba(245,240,232,.1);margin:-1px -1px 0 0;position:relative;transition:background .25s;}
+.signal-item:hover{background:rgba(245,240,232,.04);}
+.signal-icon{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:rgba(245,240,232,.12);line-height:1;margin-bottom:.75rem;}
+.signal-text{font-size:.95rem;line-height:1.6;color:rgba(245,240,232,.75);font-weight:300;}
+.signal-text strong{color:var(--paper);font-weight:500;}
+.signals-cta{max-width:1400px;margin:2.5rem auto 0;display:flex;align-items:center;gap:1.5rem;}
+.signals-cta-line{font-size:.9rem;color:rgba(245,240,232,.5);font-weight:300;font-style:italic;}
+
+/* ── PROFILES PREVIEW ── */
+#profiles-preview{background:var(--cream);border-top:1px solid var(--rule);}
+.profiles-intro{font-size:1rem;line-height:1.7;color:var(--muted);font-weight:300;max-width:520px;margin-bottom:3rem;}
+.profiles-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0;}
+.profile-card{padding:2rem 1.75rem;border:1px solid var(--rule);margin:-1px -1px 0 0;cursor:pointer;transition:background .25s,border-color .25s;position:relative;overflow:hidden;}
+.profile-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--rust);transform:scaleX(0);transform-origin:left;transition:transform .3s;}
+.profile-card:hover::before{transform:scaleX(1);}
+.profile-card:hover{background:rgba(196,83,42,.04);}
+.profile-card-num{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--rust);margin-bottom:1rem;}
+.profile-card-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;line-height:1.25;margin-bottom:.75rem;}
+.profile-card-desc{font-size:.82rem;line-height:1.6;color:var(--muted);font-weight:300;}
+.profiles-cta{margin-top:2.5rem;display:flex;align-items:center;gap:1.5rem;}
+.profiles-cta-note{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+
+/* ── EXPERIENCE ── */
+#experience{border-top:1px solid var(--rule);}
+.exp-intro{font-size:1rem;line-height:1.7;color:var(--muted);font-weight:300;max-width:640px;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--rule);}
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.exp-item{padding:2.5rem;border:1px solid var(--rule);margin:-1px -1px 0 0;transition:background .25s;}
+.exp-item:hover{background:rgba(196,83,42,.03);}
+.exp-period{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--rust);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.6rem;}
+.exp-role{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;line-height:1.2;margin-bottom:.35rem;}
+.exp-company{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.1rem;padding-bottom:1.1rem;border-bottom:1px solid var(--rule);}
+.exp-desc{font-size:.88rem;line-height:1.7;color:var(--muted);font-weight:300;}
+.exp-item.featured{grid-column:span 2;background:var(--ink);color:var(--paper);}
+.exp-item.featured .exp-period{color:var(--gold);}
+.exp-item.featured .exp-company{color:rgba(245,240,232,.45);border-color:rgba(245,240,232,.12);}
+.exp-item.featured .exp-desc{color:rgba(245,240,232,.7);}
+.exp-item.featured:hover{background:var(--ink);}
+
+/* ── SERVICES ── */
+#services{background:var(--cream);border-top:1px solid var(--rule);}
+.services-layout{display:grid;grid-template-columns:1fr 2fr;gap:6rem;align-items:start;}
+.services-intro{font-size:1rem;line-height:1.75;color:var(--muted);font-weight:300;position:sticky;top:110px;}
+.services-intro p+p{margin-top:1rem;}
+.services-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.service-card{padding:2.5rem;border:1px solid var(--rule);margin:-1px -1px 0 0;transition:background .25s;}
+.service-card:hover{background:rgba(196,83,42,.04);}
+.service-num{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--rust);margin-bottom:1rem;}
+.service-name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;line-height:1.2;margin-bottom:.75rem;}
+.service-problem{font-size:.82rem;line-height:1.6;color:var(--muted);font-weight:300;margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid var(--rule);font-style:italic;}
+.service-desc{font-size:.85rem;line-height:1.65;color:var(--ink);font-weight:300;}
+.services-diag-note{grid-column:span 2;padding:1.5rem 2.5rem;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:space-between;gap:2rem;margin-top:-1px;}
+.services-diag-text{font-size:.88rem;color:rgba(245,240,232,.65);font-weight:300;font-style:italic;}
+
+/* ── AWARDS ── */
+#awards{background:var(--ink);color:var(--paper);}
+#awards .section-title{color:var(--paper);}
+#awards .section-num{color:var(--gold);}
+#awards .section-rule{background:rgba(245,240,232,.15);}
+.awards-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(245,240,232,.08);border:1px solid rgba(245,240,232,.08);max-width:1400px;margin:0 auto;}
+.award-item{background:var(--ink);padding:3rem;position:relative;overflow:hidden;transition:background .25s;}
+.award-item::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold);transform:scaleY(0);transform-origin:bottom;transition:transform .3s;}
+.award-item:hover::before{transform:scaleY(1);}
+.award-item:hover{background:rgba(245,240,232,.03);}
+.award-year{font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:900;color:rgba(245,240,232,.07);line-height:1;margin-bottom:.75rem;}
+.award-name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;line-height:1.3;margin-bottom:.4rem;color:var(--paper);}
+.award-org{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);}
+
+/* ── EDUCATION ── */
+#education{border-top:1px solid var(--rule);}
+.edu-row{display:grid;grid-template-columns:160px 1fr;gap:3rem;align-items:start;max-width:700px;}
+.edu-year{font-family:'Playfair Display',serif;font-size:4.5rem;font-weight:900;color:var(--rule);line-height:1;}
+.edu-degree{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;line-height:1.2;margin-bottom:.4rem;}
+.edu-school{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--rust);margin-bottom:1rem;}
+.edu-thesis{font-size:.88rem;color:var(--muted);font-style:italic;line-height:1.65;}
+.certs-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2.5rem;}
+.cert-pill{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.05em;padding:.45rem .9rem;background:var(--cream);border:1px solid var(--rule);color:var(--muted);}
+
+/* ── CONTACT ── */
+#contact{border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr 1fr;min-height:42vh;padding:0;}
+.contact-left{padding:5rem 4rem;border-right:1px solid var(--rule);display:flex;flex-direction:column;justify-content:center;}
+.contact-right{padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center;}
+.contact-heading{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,3rem);font-weight:700;line-height:1.1;letter-spacing:-.02em;margin-bottom:1.25rem;}
+.contact-heading em{font-style:italic;color:var(--rust);}
+.contact-sub{font-size:.92rem;color:var(--muted);line-height:1.75;font-weight:300;}
+.contact-links{display:flex;flex-direction:column;gap:1.1rem;}
+.contact-link{display:flex;align-items:center;gap:1rem;text-decoration:none;color:var(--ink);font-family:'DM Mono',monospace;font-size:.78rem;letter-spacing:.06em;padding-bottom:1.1rem;border-bottom:1px solid var(--rule);transition:color .2s;}
+.contact-link:hover{color:var(--rust);}
+.contact-link-label{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);width:60px;flex-shrink:0;}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);color:rgba(245,240,232,.35);padding:1.75rem 3rem;display:flex;justify-content:space-between;align-items:center;}
+footer span{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+body.switching{pointer-events:none;}
+body.switching .translatable{opacity:0;transition:opacity .1s;}
+.translatable{transition:opacity .2s;}
+
+/* ── MODAL ── */
+.diag-overlay{position:fixed;inset:0;z-index:1000;background:rgba(14,13,11,.82);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;transition:opacity .3s;}
+.diag-overlay[hidden]{display:none;}
+.diag-overlay.visible{opacity:1;}
+.diag-panel{background:var(--paper);width:100%;max-width:680px;max-height:90vh;overflow-y:auto;position:relative;transform:translateY(28px);transition:transform .35s cubic-bezier(.22,1,.36,1);}
+.diag-overlay.visible .diag-panel{transform:translateY(0);}
+.diag-close{position:absolute;top:1.1rem;right:1.25rem;background:transparent;border:none;font-family:'DM Mono',monospace;font-size:.95rem;color:var(--muted);cursor:pointer;z-index:10;transition:color .2s;line-height:1;}
+.diag-close:hover{color:var(--rust);}
+.diag-progress-wrap{height:3px;background:var(--rule);}
+.diag-progress-bar{height:100%;background:var(--rust);width:0%;transition:width .4s ease;}
+.diag-screen{display:none;padding:2.75rem 3rem 2.5rem;}
+.diag-screen.active{display:block;}
+
+/* Intro */
+.diag-eyebrow{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rust);display:block;margin-bottom:.9rem;}
+.diag-title{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:700;line-height:1.15;letter-spacing:-.02em;margin-bottom:1.1rem;}
+.diag-intro-body{font-size:.92rem;color:var(--muted);line-height:1.75;font-weight:300;margin-bottom:1.75rem;}
+.diag-pillars{display:flex;gap:1.5rem;padding:1.1rem 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:2rem;}
+.diag-pillar{display:flex;align-items:center;gap:.45rem;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
+.diag-pillar-icon{color:var(--rust);}
+.diag-btn-start{background:var(--ink);color:var(--paper);border:none;padding:.9rem 2.25rem;font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .2s,transform .2s;}
+.diag-btn-start:hover{background:var(--rust);transform:translateY(-2px);}
+
+/* Question */
+.diag-q-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.4rem;}
+.diag-q-counter{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;color:var(--muted);}
+.diag-q-dim{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rust);border:1px solid var(--rust);padding:.18rem .55rem;}
+.diag-q-text{font-family:'Playfair Display',serif;font-size:clamp(1.05rem,2.2vw,1.4rem);font-weight:700;line-height:1.3;letter-spacing:-.01em;margin-bottom:1.75rem;}
+.diag-options{display:flex;flex-direction:column;gap:.65rem;margin-bottom:1.75rem;}
+.diag-option{display:flex;align-items:flex-start;gap:.9rem;padding:.9rem 1.15rem;border:1px solid var(--rule);background:transparent;text-align:left;cursor:pointer;transition:border-color .2s,background .2s;font-family:'DM Sans',sans-serif;font-size:.87rem;line-height:1.5;color:var(--ink);font-weight:300;width:100%;}
+.diag-option:hover{border-color:var(--muted);background:var(--cream);}
+.diag-option.selected{border-color:var(--rust);background:rgba(196,83,42,.05);}
+.diag-option-letter{font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.1em;color:var(--rust);flex-shrink:0;margin-top:.12rem;}
+.diag-q-nav{display:flex;align-items:center;justify-content:space-between;padding-top:1.1rem;border-top:1px solid var(--rule);}
+.diag-btn-back{background:transparent;border:1px solid var(--rule);color:var(--muted);font-family:'DM Mono',monospace;font-size:.75rem;padding:.55rem .9rem;cursor:pointer;transition:border-color .2s,color .2s;}
+.diag-btn-back:hover{border-color:var(--muted);color:var(--ink);}
+.diag-btn-next{background:var(--ink);border:none;color:var(--paper);font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.08em;padding:.7rem 1.6rem;cursor:pointer;transition:background .2s,opacity .2s;text-transform:uppercase;}
+.diag-btn-next:disabled{opacity:.3;cursor:not-allowed;}
+.diag-btn-next:not(:disabled):hover{background:var(--rust);}
+
+/* Result */
+.result-header{background:var(--ink);color:var(--paper);padding:2.25rem 3rem;}
+.result-profile-label{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.65rem;display:block;}
+.result-profile-name{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:900;line-height:1.1;letter-spacing:-.02em;margin-bottom:.9rem;}
+.result-profile-desc{font-size:.9rem;color:rgba(245,240,232,.68);line-height:1.72;font-weight:300;}
+.result-scores{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:1px solid rgba(245,240,232,.1);margin-top:1.4rem;}
+.result-score-item{padding:.9rem;text-align:center;border-right:1px solid rgba(245,240,232,.1);}
+.result-score-item:last-child{border-right:none;}
+.result-score-val{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;color:var(--paper);line-height:1;}
+.result-score-bar-wrap{height:3px;background:rgba(245,240,232,.1);margin:.35rem 0;}
+.result-score-bar{height:100%;background:var(--gold);transition:width .8s .3s ease;}
+.result-score-label{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,232,.38);}
+.result-body{padding:2rem 3rem;background:var(--cream);}
+.result-section-title{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--rust);margin-bottom:.9rem;display:block;}
+.result-actions{list-style:none;display:flex;flex-direction:column;gap:.65rem;margin-bottom:1.75rem;}
+.result-actions li{display:flex;gap:.7rem;font-size:.87rem;line-height:1.6;color:var(--ink);font-weight:300;padding-bottom:.65rem;border-bottom:1px solid var(--rule);}
+.result-action-num{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--rust);flex-shrink:0;margin-top:.15rem;}
+.result-collab{background:var(--ink);color:var(--paper);padding:1.4rem 1.75rem;margin-top:.25rem;}
+.result-collab-title{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;display:block;}
+.result-collab p{font-size:.87rem;color:rgba(245,240,232,.7);line-height:1.65;font-weight:300;margin-bottom:1.1rem;}
+.result-cta-row{display:flex;gap:.65rem;flex-wrap:wrap;}
+.result-btn-contact{background:var(--rust);color:var(--paper);border:none;padding:.7rem 1.4rem;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;transition:background .2s;}
+.result-btn-contact:hover{background:#a8431f;}
+.result-btn-retry{background:transparent;color:rgba(245,240,232,.45);border:1px solid rgba(245,240,232,.18);padding:.7rem 1.4rem;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:color .2s,border-color .2s;}
+.result-btn-retry:hover{color:var(--paper);border-color:rgba(245,240,232,.45);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;}
+  .hero-left{border-right:none;border-bottom:1px solid var(--rule);padding:5.5rem 1.5rem 3rem;}
+  .hero-right{padding:3rem 1.5rem;}
+  .profiles-grid{grid-template-columns:1fr 1fr;}
+  .services-layout{grid-template-columns:1fr;gap:3rem;}
+  .services-intro{position:static;}
+  .services-grid{grid-template-columns:1fr;}
+  .services-diag-note{grid-column:span 1;}
+  .signals-grid{grid-template-columns:1fr;}
+  .exp-grid{grid-template-columns:1fr;}
+  .exp-item.featured{grid-column:span 1;}
+  .awards-grid{grid-template-columns:1fr;}
+  #contact{grid-template-columns:1fr;}
+  .contact-left{border-right:none;border-bottom:1px solid var(--rule);}
+  section{padding:4rem 1.5rem;}
+  #signals{padding:4rem 1.5rem;}
+  .edu-row{grid-template-columns:1fr;gap:1rem;}
+  .edu-year{font-size:3rem;}
+  nav{padding:1rem 1.5rem;}
+  .nav-links{gap:1rem;}
+  .diag-screen{padding:2rem 1.5rem;}
+  .result-header{padding:1.75rem 1.5rem;}
+  .result-body{padding:1.5rem;}
+  .diag-pillars{flex-direction:column;gap:.65rem;}
+}
+@media(max-width:600px){
+  .profiles-grid{grid-template-columns:1fr;}
+  .cta-row{flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">EMH</span>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#experience" class="translatable" data-es="Experiencia" data-en="Experience">Experiencia</a></li>
+      <li><a href="#services"   class="translatable" data-es="Servicios"   data-en="Services">Servicios</a></li>
+      <li><a href="#contact"    class="translatable" data-es="Contacto"    data-en="Contact">Contacto</a></li>
+      <li><a href="#" id="nav-diag" class="nav-diag translatable" data-es="Diagnóstico" data-en="Diagnosis">Diagnóstico</a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="es">ES</button>
+      <button class="lang-btn"        data-lang="en">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <span class="hero-eyebrow translatable" data-es="Content Strategist · Envigado, Colombia" data-en="Content Strategist · Envigado, Colombia">Content Strategist · Envigado, Colombia</span>
+    <h1 class="hero-name">Esteban<br><em>Martínez</em><br>Henao</h1>
+    <p class="hero-promise translatable"
+      data-es="Detecto qué está frenando tu mensaje, tu contenido o tu posicionamiento — y construyo la ruta para corregirlo."
+      data-en="I detect what's holding back your message, your content, or your positioning — and build the path to fix it.">
+      Detecto qué está frenando tu mensaje, tu contenido o tu posicionamiento — y construyo la ruta para corregirlo.
+    </p>
+    <div class="hero-cta">
+      <div class="cta-row">
+        <button id="open-diag" class="btn-diag">
+          <span class="translatable" data-es="Encuentra qué está fallando" data-en="Find what's not working">Encuentra qué está fallando</span>
+          <span class="btn-diag-arrow">→</span>
+        </button>
+        <a href="#experience" class="btn-ghost translatable" data-es="Ver experiencia" data-en="See experience">Ver experiencia</a>
+      </div>
+      <p class="cta-note translatable" data-es="Diagnóstico gratuito · 3 min · Sin registro" data-en="Free diagnosis · 3 min · No sign-up">Diagnóstico gratuito · 3 min · Sin registro</p>
+    </div>
+    <span class="deco-line">Portfolio 2025</span>
+  </div>
+  <div class="hero-right">
+    <p class="hero-summary translatable"
+      data-es="Content strategist con 5+ años de experiencia convirtiendo ideas complejas en contenido claro, estructurado y con dirección. Blogs, emails, landing pages, campañas y sistemas editoriales para más de 44 marcas en SaaS, tecnología y agencias."
+      data-en="Content strategist with 5+ years of experience turning complex ideas into clear, structured, purposeful content. Blogs, emails, landing pages, campaigns, and editorial systems for 44+ brands in SaaS, tech, and agencies.">
+      Content strategist con 5+ años de experiencia convirtiendo ideas complejas en contenido claro, estructurado y con dirección. Blogs, emails, landing pages, campañas y sistemas editoriales para más de 44 marcas en SaaS, tecnología y agencias.
+    </p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">44+</div>
+        <div class="stat-label translatable" data-es="Marcas atendidas" data-en="Brands served">Marcas atendidas</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5+</div>
+        <div class="stat-label translatable" data-es="Años de experiencia" data-en="Years of experience">Años de experiencia</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">2</div>
+        <div class="stat-label translatable" data-es="Idiomas" data-en="Languages">Idiomas</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">4</div>
+        <div class="stat-label translatable" data-es="Certificaciones" data-en="Certifications">Certificaciones</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNALS -->
+<section id="signals">
+  <div class="section-header reveal" style="max-width:1400px;margin:0 auto 3rem;">
+    <span class="section-num">—</span>
+    <h2 class="section-title translatable" data-es="¿Te suena alguno de estos?" data-en="Does any of this sound familiar?">¿Te suena alguno de estos?</h2>
+    <span class="section-rule"></span>
+  </div>
+  <div class="signals-grid reveal">
+    <div class="signal-item">
+      <div class="signal-icon">01</div>
+      <p class="signal-text translatable"
+        data-es="<strong>Tu negocio es bueno</strong>, pero cuesta explicarlo sin que suene genérico."
+        data-en="<strong>Your business is solid</strong>, but it's hard to explain without sounding generic.">
+        <strong>Tu negocio es bueno</strong>, pero cuesta explicarlo sin que suene genérico.
+      </p>
+    </div>
+    <div class="signal-item">
+      <div class="signal-icon">02</div>
+      <p class="signal-text translatable"
+        data-es="<strong>Publicas contenido</strong>, pero sin una dirección clara. O no publicas, y tampoco sabes por dónde empezar."
+        data-en="<strong>You publish content</strong>, but without a clear direction. Or you don't publish at all, and don't know where to start.">
+        <strong>Publicas contenido</strong>, pero sin una dirección clara. O no publicas, y tampoco sabes por dónde empezar.
+      </p>
+    </div>
+    <div class="signal-item">
+      <div class="signal-icon">03</div>
+      <p class="signal-text translatable"
+        data-es="<strong>Tu web o perfil existe</strong>, pero no convierte — la gente llega, mira y no actúa."
+        data-en="<strong>Your website or profile exists</strong>, but it doesn't convert — people arrive, look around, and leave.">
+        <strong>Tu web o perfil existe</strong>, pero no convierte — la gente llega, mira y no actúa.
+      </p>
+    </div>
+    <div class="signal-item">
+      <div class="signal-icon">04</div>
+      <p class="signal-text translatable"
+        data-es="<strong>Tu mensaje cambia</strong> según el canal o el interlocutor. No hay una voz consistente."
+        data-en="<strong>Your message shifts</strong> depending on the channel or the audience. There's no consistent voice.">
+        <strong>Tu mensaje cambia</strong> según el canal o el interlocutor. No hay una voz consistente.
+      </p>
+    </div>
+    <div class="signal-item">
+      <div class="signal-icon">05</div>
+      <p class="signal-text translatable"
+        data-es="<strong>Dependes de una llamada</strong> para que realmente te entiendan. El contenido no hace el trabajo antes."
+        data-en="<strong>You rely on a call</strong> for people to actually get what you do. The content isn't doing the work first.">
+        <strong>Dependes de una llamada</strong> para que realmente te entiendan. El contenido no hace el trabajo antes.
+      </p>
+    </div>
+    <div class="signal-item" style="display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:1.25rem;">
+      <p class="signal-text" style="color:rgba(245,240,232,.5);font-style:italic;" id="signals-cta-text">Si alguno resuena, el diagnóstico puede darte claridad en 3 minutos.</p>
+      <button id="open-diag-2" class="btn-diag" style="border-color:rgba(245,240,232,.35);color:rgba(245,240,232,.75);">
+        <span class="translatable" data-es="Encuentra qué está fallando" data-en="Find what's not working">Encuentra qué está fallando</span>
+        <span class="btn-diag-arrow">→</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- PROFILES PREVIEW -->
+<section id="profiles-preview">
+  <div class="section-header reveal">
+    <span class="section-num">—</span>
+    <h2 class="section-title translatable" data-es="¿Cuál de estos eres tú?" data-en="Which one are you?">¿Cuál de estos eres tú?</h2>
+    <span class="section-rule"></span>
+  </div>
+  <p class="profiles-intro reveal translatable"
+    data-es="El diagnóstico no arroja un número. Arroja un perfil — una descripción concreta de dónde estás y qué está bloqueando tu comunicación. Estos son los cinco perfiles posibles."
+    data-en="The diagnosis doesn't give you a score. It gives you a profile — a concrete description of where you are and what's blocking your communication. These are the five possible profiles.">
+    El diagnóstico no arroja un número. Arroja un perfil — una descripción concreta de dónde estás y qué está bloqueando tu comunicación. Estos son los cinco perfiles posibles.
+  </p>
+  <div class="profiles-grid reveal">
+    <div class="profile-card">
+      <div class="profile-card-num">01</div>
+      <div class="profile-card-name translatable" data-es="El experto invisible" data-en="The invisible expert">El experto invisible</div>
+      <div class="profile-card-desc translatable"
+        data-es="Sabe lo que hace y para quién. El problema es que nadie más lo sabe."
+        data-en="Knows what they do and who for. The problem is nobody else does.">
+        Sabe lo que hace y para quién. El problema es que nadie más lo sabe.
+      </div>
+    </div>
+    <div class="profile-card">
+      <div class="profile-card-num">02</div>
+      <div class="profile-card-name translatable" data-es="El activo sin brújula" data-en="The active but directionless">El activo sin brújula</div>
+      <div class="profile-card-desc translatable"
+        data-es="Produce contenido, tiene canales, hay actividad. Pero falta dirección y todo se siente disperso."
+        data-en="Produces content, has channels, there's activity. But direction is missing and everything feels scattered.">
+        Produce contenido, tiene canales, hay actividad. Pero falta dirección y todo se siente disperso.
+      </div>
+    </div>
+    <div class="profile-card">
+      <div class="profile-card-num">03</div>
+      <div class="profile-card-name translatable" data-es="El que está listo" data-en="The one who's ready">El que está listo</div>
+      <div class="profile-card-desc translatable"
+        data-es="Tiene claridad y presencia. Ahora necesita escalar sin perder la voz."
+        data-en="Has clarity and presence. Now needs to scale without losing their voice.">
+        Tiene claridad y presencia. Ahora necesita escalar sin perder la voz.
+      </div>
+    </div>
+    <div class="profile-card">
+      <div class="profile-card-num">04</div>
+      <div class="profile-card-name translatable" data-es="El que empieza" data-en="The one just starting">El que empieza</div>
+      <div class="profile-card-desc translatable"
+        data-es="Tiene el negocio o el expertise, pero la comunicación todavía no refleja nada de eso."
+        data-en="Has the business or the expertise, but the communication doesn't reflect any of it yet.">
+        Tiene el negocio o el expertise, pero la comunicación todavía no refleja nada de eso.
+      </div>
+    </div>
+    <div class="profile-card">
+      <div class="profile-card-num">05</div>
+      <div class="profile-card-name translatable" data-es="El que tiene tracción" data-en="The one with traction">El que tiene tracción</div>
+      <div class="profile-card-desc translatable"
+        data-es="Algo está funcionando, pero no sabe exactamente por qué ni cómo replicarlo."
+        data-en="Something is working, but not sure exactly why or how to replicate it.">
+        Algo está funcionando, pero no sabe exactamente por qué ni cómo replicarlo.
+      </div>
+    </div>
+  </div>
+  <div class="profiles-cta reveal">
+    <button id="open-diag-3" class="btn-primary translatable" data-es="Haz el diagnóstico y descúbrelo" data-en="Take the diagnosis and find out">Haz el diagnóstico y descúbrelo</button>
+    <span class="profiles-cta-note translatable" data-es="Gratuito · 3 min · Sin registro" data-en="Free · 3 min · No sign-up">Gratuito · 3 min · Sin registro</span>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header reveal">
+    <span class="section-num">01</span>
+    <h2 class="section-title translatable" data-es="Experiencia" data-en="Experience">Experiencia</h2>
+    <span class="section-rule"></span>
+  </div>
+  <p class="exp-intro reveal translatable"
+    data-es="Cinco años construyendo contenido que posiciona, convierte y escala — para más de 44 marcas en SaaS, tecnología y agencias en Estados Unidos y Latinoamérica."
+    data-en="Five years building content that positions, converts, and scales — for 44+ brands in SaaS, tech, and agencies across the US and Latin America.">
+    Cinco años construyendo contenido que posiciona, convierte y escala — para más de 44 marcas en SaaS, tecnología y agencias en Estados Unidos y Latinoamérica.
+  </p>
+  <div class="exp-grid">
+    <div class="exp-item featured reveal">
+      <div class="exp-period translatable" data-es="Ene 2025 — Presente" data-en="Jan 2025 — Present">Ene 2025 — Presente</div>
+      <div class="exp-role">AI Content Specialist</div>
+      <div class="exp-company">Marketers in Demand</div>
+      <div class="exp-desc translatable"
+        data-es="Creación de contenido para clientes de SaaS, tecnología y agencias, soportando más de 44 marcas. Transformo transcripts, investigación y briefs en blogs, landing pages, emails y posts sociales alineados con cada voz de marca. Trabajo con equipos de estrategia y SEO para entregar contenido de alto volumen con dirección clara."
+        data-en="Content creation for SaaS, tech, and agency clients across 44+ brands. I transform transcripts, research, and briefs into blogs, landing pages, emails, and social posts aligned with each brand voice. I collaborate with strategy and SEO teams to deliver high-volume content with clear direction.">
+        Creación de contenido para clientes de SaaS, tecnología y agencias, soportando más de 44 marcas. Transformo transcripts, investigación y briefs en blogs, landing pages, emails y posts sociales alineados con cada voz de marca. Trabajo con equipos de estrategia y SEO para entregar contenido de alto volumen con dirección clara.
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <div class="exp-period translatable" data-es="Mar 2024 — Ene 2025" data-en="Mar 2024 — Jan 2025">Mar 2024 — Ene 2025</div>
+      <div class="exp-role">Content Manager</div>
+      <div class="exp-company">Expresia</div>
+      <div class="exp-desc translatable"
+        data-es="Estrategias y activos de contenido B2B para una plataforma de experiencia digital con alcance global. Blogs, landing pages, emails y posts para business owners, desarrolladores y agencias. Adaptación de contenido para nuevos mercados internacionales."
+        data-en="B2B content strategy and assets for a global digital experience platform. Blogs, landing pages, emails, and posts for business owners, developers, and agencies. Content adaptation for new international markets.">
+        Estrategias y activos de contenido B2B para una plataforma de experiencia digital con alcance global. Blogs, landing pages, emails y posts para business owners, desarrolladores y agencias. Adaptación de contenido para nuevos mercados internacionales.
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <div class="exp-period">Jun 2022 — Mar 2024</div>
+      <div class="exp-role">Copy Lead</div>
+      <div class="exp-company">ULTIM Marketing</div>
+      <div class="exp-desc translatable"
+        data-es="Contenido en inglés y español para más de 20 marcas en EE.UU. y Latinoamérica en alimentación, salud y servicios. Contribuí a un aumento del 15% en generación de leads para clientes estadounidenses y apoyé el crecimiento de clientes de la agencia en un 25%."
+        data-en="English and Spanish content for 20+ brands across the US and Latin America in food, health, and services. Contributed to a 15% increase in lead generation for US clients and supported 25% agency client growth.">
+        Contenido en inglés y español para más de 20 marcas en EE.UU. y Latinoamérica en alimentación, salud y servicios. Contribuí a un aumento del 15% en generación de leads para clientes estadounidenses y apoyé el crecimiento de clientes de la agencia en un 25%.
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <div class="exp-period">Oct 2021 — Jun 2022</div>
+      <div class="exp-role">Digital Media Consultant</div>
+      <div class="exp-company">WWF Colombia</div>
+      <div class="exp-desc translatable"
+        data-es="Estrategias de comunicación digital para campañas de advocacy ambiental. Promoción del Acuerdo de Escazú y contenido multicanal para la Hora del Planeta en 6 ciudades. Adaptación de mensajes para Señal Colombia y RTVC."
+        data-en="Digital communication strategies for environmental advocacy campaigns. Escazú Agreement promotion and multichannel content for Earth Hour across 6 cities. Messaging adaptation for Señal Colombia and RTVC.">
+        Estrategias de comunicación digital para campañas de advocacy ambiental. Promoción del Acuerdo de Escazú y contenido multicanal para la Hora del Planeta en 6 ciudades. Adaptación de mensajes para Señal Colombia y RTVC.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-header reveal">
+    <span class="section-num">02</span>
+    <h2 class="section-title translatable" data-es="Servicios" data-en="Services">Servicios</h2>
+    <span class="section-rule"></span>
+  </div>
+  <div class="services-layout">
+    <div class="services-intro reveal">
+      <p class="translatable"
+        data-es="No listo herramientas. Listo problemas que resuelvo y resultados que puedes esperar."
+        data-en="I don't list tools. I list problems I solve and results you can expect.">
+        No listo herramientas. Listo problemas que resuelvo y resultados que puedes esperar.
+      </p>
+      <p class="translatable" style="margin-top:1.25rem;"
+        data-es="Si no sabes cuál necesitas, el diagnóstico te lo dice."
+        data-en="If you're not sure which one you need, the diagnosis will tell you.">
+        Si no sabes cuál necesitas, el diagnóstico te lo dice.
+      </p>
+      <button id="open-diag-4" class="btn-diag" style="margin-top:1.75rem;">
+        <span class="translatable" data-es="Encuentra qué está fallando" data-en="Find what's not working">Encuentra qué está fallando</span>
+        <span class="btn-diag-arrow">→</span>
+      </button>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-num">01</div>
+        <div class="service-name translatable" data-es="Sprint de mensaje" data-en="Message sprint">Sprint de mensaje</div>
+        <div class="service-problem translatable"
+          data-es="No sabes cómo explicar lo que haces sin que suene genérico o demasiado técnico."
+          data-en="You don't know how to explain what you do without sounding generic or overly technical.">
+          No sabes cómo explicar lo que haces sin que suene genérico o demasiado técnico.
+        </div>
+        <div class="service-desc translatable"
+          data-es="Propuesta de valor, diferenciador y voz definidos. Una estructura clara que puedes usar en tu web, tus redes y tus conversaciones."
+          data-en="Defined value proposition, differentiator, and voice. A clear structure you can use across your website, social channels, and conversations.">
+          Propuesta de valor, diferenciador y voz definidos. Una estructura clara que puedes usar en tu web, tus redes y tus conversaciones.
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">02</div>
+        <div class="service-name translatable" data-es="Sistema de contenido" data-en="Content system">Sistema de contenido</div>
+        <div class="service-problem translatable"
+          data-es="Publicas sin ritmo ni dirección — o no publicas porque no sabes cómo hacer que sea sostenible."
+          data-en="You publish without rhythm or direction — or you don't publish because you don't know how to make it sustainable.">
+          Publicas sin ritmo ni dirección — o no publicas porque no sabes cómo hacer que sea sostenible.
+        </div>
+        <div class="service-desc translatable"
+          data-es="Calendario editorial, plantillas y flujo de producción adaptados a tu realidad. Contenido que funciona aunque no tengas tiempo ilimitado."
+          data-en="Editorial calendar, templates, and production flow adapted to your reality. Content that works even when you don't have unlimited time.">
+          Calendario editorial, plantillas y flujo de producción adaptados a tu realidad. Contenido que funciona aunque no tengas tiempo ilimitado.
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">03</div>
+        <div class="service-name translatable" data-es="Copy para conversión" data-en="Conversion copy">Copy para conversión</div>
+        <div class="service-problem translatable"
+          data-es="Tienes tráfico, audiencia o visitas — pero nadie está actuando. El contenido no está convirtiendo."
+          data-en="You have traffic, an audience, or visitors — but nobody's taking action. The content isn't converting.">
+          Tienes tráfico, audiencia o visitas — pero nadie está actuando. El contenido no está convirtiendo.
+        </div>
+        <div class="service-desc translatable"
+          data-es="Landing pages, secuencias de email y CTAs diseñados para mover al visitante. Escritura orientada a la acción, no al scroll."
+          data-en="Landing pages, email sequences, and CTAs designed to move the visitor. Writing oriented toward action, not just scrolling.">
+          Landing pages, secuencias de email y CTAs diseñados para mover al visitante. Escritura orientada a la acción, no al scroll.
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">04</div>
+        <div class="service-name translatable" data-es="Arquitectura editorial" data-en="Editorial architecture">Arquitectura editorial</div>
+        <div class="service-problem translatable"
+          data-es="Tienes piezas sueltas pero no un sistema. Cada canal dice algo distinto y nada está conectado."
+          data-en="You have loose pieces but not a system. Each channel says something different and nothing is connected.">
+          Tienes piezas sueltas pero no un sistema. Cada canal dice algo distinto y nada está conectado.
+        </div>
+        <div class="service-desc translatable"
+          data-es="Estrategia de contenido completa: qué publicar, dónde, cómo y con qué objetivo. Una estructura que conecta canales y da coherencia a todo."
+          data-en="Full content strategy: what to publish, where, how, and with what goal. A structure that connects channels and brings coherence to everything.">
+          Estrategia de contenido completa: qué publicar, dónde, cómo y con qué objetivo. Una estructura que conecta canales y da coherencia a todo.
+        </div>
+      </div>
+      <div class="services-diag-note reveal">
+        <span class="services-diag-text translatable"
+          data-es="¿No sabes cuál de estos necesitas? El diagnóstico te lo dice en 3 minutos."
+          data-en="Not sure which of these you need? The diagnosis will tell you in 3 minutes.">
+          ¿No sabes cuál de estos necesitas? El diagnóstico te lo dice en 3 minutos.
+        </span>
+        <button id="open-diag-5" class="btn-diag" style="border-color:rgba(245,240,232,.3);color:rgba(245,240,232,.75);flex-shrink:0;">
+          <span class="translatable" data-es="Encuentra qué está fallando" data-en="Find what's not working">Encuentra qué está fallando</span>
+          <span class="btn-diag-arrow">→</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards">
+  <div class="section-header reveal" style="max-width:1400px;margin:0 auto 4rem;">
+    <span class="section-num">03</span>
+    <h2 class="section-title translatable" data-es="Reconocimientos" data-en="Awards">Reconocimientos</h2>
+    <span class="section-rule"></span>
+  </div>
+  <div class="awards-grid">
+    <div class="award-item reveal">
+      <div class="award-year">2022</div>
+      <div class="award-name translatable" data-es="Effie Colombia — Finalista" data-en="Effie Colombia — Finalist">Effie Colombia — Finalista</div>
+      <div class="award-org">«La nevera de los colombianos»</div>
+    </div>
+    <div class="award-item reveal">
+      <div class="award-year">2021</div>
+      <div class="award-name translatable" data-es="Bronce — El Dorado Awards" data-en="Bronze — El Dorado Awards">Bronce — El Dorado Awards</div>
+      <div class="award-org translatable" data-es="Categoría Guerrilla Marketing" data-en="Guerrilla Marketing Category">Categoría Guerrilla Marketing</div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-header reveal">
+    <span class="section-num">04</span>
+    <h2 class="section-title translatable" data-es="Educación" data-en="Education">Educación</h2>
+    <span class="section-rule"></span>
+  </div>
+  <div class="edu-row reveal">
+    <div class="edu-year">2015</div>
+    <div>
+      <div class="edu-degree translatable" data-es="Licenciatura en Periodismo" data-en="Bachelor's Degree in Journalism">Licenciatura en Periodismo</div>
+      <div class="edu-school translatable" data-es="Universidad de Ingeniería y Tecnología" data-en="University of Engineering and Technology">Universidad de Ingeniería y Tecnología</div>
+      <div class="edu-thesis translatable"
+        data-es="Tesis: «Estudio de Caso: El Espectador y los Temas de Periodismo Científico»"
+        data-en="Thesis: «Case Study: El Espectador and Scientific Journalism Themes»">
+        Tesis: «Estudio de Caso: El Espectador y los Temas de Periodismo Científico»
+      </div>
+    </div>
+  </div>
+  <div class="certs-row reveal">
+    <span class="cert-pill">Google Analytics — Skillshop</span>
+    <span class="cert-pill">Content Marketing — Platzi</span>
+    <span class="cert-pill">UX Writing & Editing — Crehana</span>
+    <span class="cert-pill translatable" data-es="Análisis de Datos — MinTIC" data-en="Data Analysis — MinTIC">Análisis de Datos — MinTIC</span>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-left">
+    <h2 class="contact-heading reveal">
+      <span class="translatable" data-es="¿Tienes un proyecto" data-en="Got a project">¿Tienes un proyecto</span><br>
+      <em class="translatable" data-es="o buscas un perfil?" data-en="or looking for a profile?">o buscas un perfil?</em>
+    </h2>
+    <p class="contact-sub reveal translatable"
+      data-es="Ya sea que tengas una necesidad puntual, un proyecto en mente o estés buscando sumar a alguien a tu equipo — hablemos."
+      data-en="Whether you have a specific need, a project in mind, or you're looking to add someone to your team — let's talk.">
+      Ya sea que tengas una necesidad puntual, un proyecto en mente o estés buscando sumar a alguien a tu equipo — hablemos.
+    </p>
+  </div>
+  <div class="contact-right">
+    <div class="contact-links">
+      <a href="mailto:aestemartinez@gmail.com" class="contact-link reveal">
+        <span class="contact-link-label translatable" data-es="Email" data-en="Email">Email</span>
+        aestemartinez@gmail.com
+      </a>
+      <a href="tel:+573004511752" class="contact-link reveal">
+        <span class="contact-link-label translatable" data-es="Teléfono" data-en="Phone">Teléfono</span>
+        +57 300 451 1752
+      </a>
+      <a href="#" class="contact-link reveal">
+        <span class="contact-link-label translatable" data-es="Ubicación" data-en="Location">Ubicación</span>
+        Envigado, Antioquia — Colombia
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- DIAGNOSIS MODAL -->
+<div id="diag-modal" class="diag-overlay" hidden>
+  <div class="diag-panel">
+    <button class="diag-close" id="diag-close">✕</button>
+    <div class="diag-progress-wrap"><div class="diag-progress-bar" id="diag-progress"></div></div>
+    <div id="diag-screens">
+      <div class="diag-screen active" id="screen-intro">
+        <span class="diag-eyebrow translatable" data-es="Autodiagnóstico de comunicación" data-en="Communication self-diagnosis">Autodiagnóstico de comunicación</span>
+        <h2 class="diag-title translatable" data-es="¿Tu marca comunica lo que realmente vale?" data-en="Does your brand communicate what it's really worth?">¿Tu marca comunica lo que realmente vale?</h2>
+        <p class="diag-intro-body translatable"
+          data-es="12 preguntas. 3 minutos. Sin trucos. Al final obtendrás un perfil concreto de tu situación comunicacional — y una ruta para mejorar."
+          data-en="12 questions. 3 minutes. No tricks. At the end you'll get a concrete profile of your communication situation — and a path to improve.">
+          12 preguntas. 3 minutos. Sin trucos. Al final obtendrás un perfil concreto de tu situación comunicacional — y una ruta para mejorar.
+        </p>
+        <div class="diag-pillars">
+          <div class="diag-pillar"><span class="diag-pillar-icon">◎</span><span class="translatable" data-es="Claridad" data-en="Clarity">Claridad</span></div>
+          <div class="diag-pillar"><span class="diag-pillar-icon">◉</span><span class="translatable" data-es="Presencia" data-en="Presence">Presencia</span></div>
+          <div class="diag-pillar"><span class="diag-pillar-icon">◈</span><span class="translatable" data-es="Conversión" data-en="Conversion">Conversión</span></div>
+        </div>
+        <button class="diag-btn-start translatable" id="btn-start" data-es="Comenzar diagnóstico" data-en="Start diagnosis">Comenzar diagnóstico</button>
+      </div>
+      <div class="diag-screen" id="screen-questions">
+        <div class="diag-q-meta">
+          <span class="diag-q-counter" id="q-counter"></span>
+          <span class="diag-q-dim" id="q-dim"></span>
+        </div>
+        <h3 class="diag-q-text" id="q-text"></h3>
+        <div class="diag-options" id="q-options"></div>
+        <div class="diag-q-nav">
+          <button class="diag-btn-back" id="btn-back">←</button>
+          <button class="diag-btn-next" id="btn-next" disabled>Siguiente →</button>
+        </div>
+      </div>
+      <div class="diag-screen" id="screen-result">
+        <div id="result-content"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span>© 2025 Esteban Martínez Henao</span>
+  <span class="translatable" data-es="Content Strategist · AI Content Specialist" data-en="Content Strategist · AI Content Specialist">Content Strategist · AI Content Specialist</span>
+</footer>
+
+<script>
+// ── SCROLL REVEAL ──
+document.querySelectorAll('.reveal').forEach(el => {
+  new IntersectionObserver((entries, obs) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), 80); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }).observe(el);
+});
+
+// ── LANGUAGE TOGGLE ──
+let currentLang = 'es';
+const transNodes = document.querySelectorAll('.translatable');
+
+function applyLang(lang) {
+  document.body.classList.add('switching');
+  setTimeout(() => {
+    transNodes.forEach(el => {
+      const t = el.getAttribute('data-' + lang);
+      if (t !== null) el.innerHTML = t;
+    });
+    document.documentElement.lang = lang;
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    currentLang = lang;
+    document.body.classList.remove('switching');
+    if (document.getElementById('screen-questions').classList.contains('active')) renderQ();
+  }, 130);
+}
+document.querySelectorAll('.lang-btn').forEach(b => {
+  b.addEventListener('click', () => { if (b.dataset.lang !== currentLang) applyLang(b.dataset.lang); });
+});
+
+// ── SIGNALS CTA TEXT ──
+const signalCtaMap = {
+  es: 'Si alguno resuena, el diagnóstico puede darte claridad en 3 minutos.',
+  en: 'If any of those resonated, the diagnosis can give you clarity in 3 minutes.'
+};
+
+// ── DIAGNOSIS DATA ──
+const DATA = {
+  es: {
+    qOf: (i,n) => `Pregunta ${i} de ${n}`,
+    dims: { C:'Claridad', P:'Presencia', V:'Conversión', X:'Contexto' },
+    nextLbl: 'Siguiente →', lastLbl: 'Ver resultado →',
+    resLabel: 'Tu perfil de comunicación',
+    actLabel: 'Qué puedes hacer ahora',
+    collLabel: 'Cómo puedo ayudarte',
+    contactLbl: 'Escribirme', retryLbl: 'Volver a empezar',
+    dimNames: ['Claridad', 'Presencia', 'Conversión'],
+    qs: [
+      { text:'Cuando alguien te pregunta qué haces, ¿qué pasa?', dim:'C', opts:[
+        {t:'Tengo una respuesta clara y consistente que resuena', s:{C:2}},
+        {t:'Explico bien, pero cada vez lo digo distinto', s:{C:1}},
+        {t:'Me cuesta resumirlo sin que suene genérico', s:{C:0}}]},
+      { text:'¿Qué tan definido tienes a tu cliente o audiencia ideal?', dim:'C', opts:[
+        {t:'Muy definido: sé quién es, qué le duele y cómo piensa', s:{C:2}},
+        {t:'Tengo una idea general pero no un perfil preciso', s:{C:1}},
+        {t:'Apunto a varios tipos de cliente sin mucha diferenciación', s:{C:0}}]},
+      { text:'¿Tienes un diferenciador claro frente a otros en tu campo?', dim:'C', opts:[
+        {t:'Sí, y lo comunico activamente', s:{C:2}},
+        {t:'Creo que lo tengo, pero no lo articulo bien todavía', s:{C:1}},
+        {t:'Me cuesta distinguirme más allá del precio o la experiencia', s:{C:0}}]},
+      { text:'¿Con qué frecuencia publicas o produces contenido?', dim:'P', opts:[
+        {t:'Regularmente, con un calendario o ritmo definido', s:{P:2}},
+        {t:'Cuando puedo o cuando tengo algo que decir', s:{P:1}},
+        {t:'Rara vez o nunca', s:{P:0}}]},
+      { text:'¿En qué canales tienes presencia activa?', dim:'P', opts:[
+        {t:'En 2 o más canales que uso estratégicamente', s:{P:2}},
+        {t:'En uno, aunque no siempre con consistencia', s:{P:1}},
+        {t:'Tengo perfiles pero no los alimento', s:{P:0}}]},
+      { text:'¿Cómo describirías el estado de tu contenido actual?', dim:'P', opts:[
+        {t:'Coherente, con voz definida y propósito claro', s:{P:2,C:1}},
+        {t:'Variable — a veces funciona, a veces no sé por qué', s:{P:1}},
+        {t:'Disperso o inexistente', s:{P:0}}]},
+      { text:'¿Tu contenido o presencia digital te ha traído clientes o oportunidades concretas?', dim:'V', opts:[
+        {t:'Sí, de forma regular y rastreable', s:{V:2}},
+        {t:'Alguna vez, pero no es algo en lo que pueda confiar', s:{V:1}},
+        {t:'No que yo sepa, o no tengo forma de medirlo', s:{V:0}}]},
+      { text:'¿Tienes algún mecanismo para capturar o nutrir leads? (newsletter, CTA, formulario, seguimiento)', dim:'V', opts:[
+        {t:'Sí, activo y funcionando', s:{V:2}},
+        {t:'Tengo algo básico pero no lo uso bien', s:{V:1}},
+        {t:'No, el contacto llega por referidos o al azar', s:{V:0}}]},
+      { text:'Cuando alguien llega a tu perfil o sitio, ¿qué suele pasar?', dim:'V', opts:[
+        {t:'Hay un recorrido claro: entienden qué hago y qué pueden hacer', s:{V:2,C:1}},
+        {t:'Miran, pero pocas veces actúan', s:{V:1}},
+        {t:'No sé qué pasa, no tengo visibilidad de eso', s:{V:0}}]},
+      { text:'¿Cuál describe mejor tu situación actual?', dim:'X', opts:[
+        {t:'Trabajo por mi cuenta (freelance, consultor, solopreneur)', s:{}},
+        {t:'Tengo un negocio pequeño con equipo reducido', s:{}},
+        {t:'Soy parte de un equipo de marketing o comunicaciones', s:{}},
+        {t:'Estoy lanzando algo nuevo', s:{}}]},
+      { text:'¿Cuál es tu mayor frustración de comunicación ahora mismo?', dim:'X', opts:[
+        {t:'No sé cómo diferenciarme en un mercado saturado', s:{}},
+        {t:'Produzco contenido pero no convierte', s:{}},
+        {t:'No tengo tiempo ni sistema para ser consistente', s:{}},
+        {t:'No sé por dónde empezar', s:{}}]},
+      { text:'¿Cuál es tu horizonte más inmediato?', dim:'X', opts:[
+        {t:'Conseguir clientes en los próximos 1–3 meses', s:{}},
+        {t:'Construir una presencia sólida a mediano plazo', s:{}},
+        {t:'Reposicionarme o redefinir mi marca', s:{}},
+        {t:'Explorar si necesito ayuda con esto', s:{}}]}
+    ],
+    profiles: {
+      invisible: { name:'El experto invisible', desc:'Sabes exactamente lo que haces y para quién lo haces. El problema es que nadie más lo sabe. Tu propuesta tiene valor real, pero no está llegando a las personas correctas porque tu presencia es mínima o inconsistente.', actions:['Define y documenta tu propuesta de valor en una sola oración. Úsala en todos tus perfiles sin variación.','Elige un canal y comprométete con una frecuencia mínima — publicar una vez por semana, de forma consistente, vale más que diez posts dispersos.','Convierte tu expertise en contenido concreto: una historia, un aprendizaje, una opinión. No necesitas inspiración, necesitas un sistema.'], collab:'Aquí es donde mejor puedo ayudarte: transformar lo que sabes en contenido que construye autoridad y presencia de forma consistente — sin que suene forzado.' },
+      nocompass: { name:'El activo sin brújula', desc:'Estás produciendo. Tienes canales, tienes contenido, hay actividad. Pero si te preguntan para qué sirve todo eso, la respuesta no es tan clara. El volumen no está compensando la falta de dirección estratégica.', actions:['Antes de publicar lo próximo, define el objetivo de cada pieza: ¿a quién habla? ¿qué acción esperas que genere?','Audita tus últimos 10 posts o piezas: ¿cuáles funcionaron mejor? Busca el patrón antes de seguir produciendo.','Considera reducir canales. Hacerlo bien en uno vale más que hacerlo de manera regular en cuatro.'], collab:'Puedo ayudarte a construir una estrategia que le dé sentido y dirección a lo que ya produces — y redirigir ese esfuerzo hacia resultados concretos.' },
+      ready:     { name:'El que está listo', desc:'Tienes las bases. Claridad, presencia y algo de conversión. No estás empezando desde cero — estás en el punto donde la diferencia entre bueno y muy bueno importa más que nunca. Lo que necesitas ahora es consistencia y escala.', actions:['Documenta lo que ya funciona: ¿qué tipo de contenido genera más respuesta? Haz más de eso, de forma intencional.','Invierte en sistematizar: un calendario editorial claro, plantillas reutilizables, un flujo de producción repetible.','Considera el siguiente nivel de distribución: colaboraciones, publicaciones externas, SEO orientado a tu audiencia.'], collab:'Puedo ayudarte a escalar sin perder la voz. Desde estrategia de contenido hasta ejecución de alto volumen con criterio.' },
+      starting:  { name:'El que empieza', desc:'Estás en el principio. Quizás tienes el negocio, el servicio, el expertise — pero la comunicación todavía no refleja nada de eso. Eso no es un defecto: es un punto de partida. La ventaja de empezar desde cero es que puedes construirlo bien desde el inicio.', actions:['Empieza con lo más básico: ¿a quién ayudas?, ¿con qué problema específico?, ¿por qué tú y no otro? Responde esas tres preguntas antes de publicar nada.','Elige un solo canal. LinkedIn para B2B, Instagram para B2C, lo que ya uses con más naturalidad.','No esperes tener todo perfecto para publicar. El primer objetivo es estar presente y consistente — no ser impecable.'], collab:'Me gusta trabajar con quienes están construyendo desde cero — puedo ayudarte a definir la voz, la estrategia y las primeras piezas que van a sentar las bases.' },
+      traction:  { name:'El que tiene tracción', desc:'Algo está funcionando. Los clientes llegan, el contenido convierte, hay señales positivas. Pero si eres honesto, no sabes bien por qué funciona ni cómo replicarlo de forma sistemática. La tracción existe — el sistema todavía no.', actions:['Documenta de dónde vienen tus mejores clientes: ¿qué canal, qué mensaje, qué momento del recorrido?','Construye alrededor de lo que funciona: si un tipo de contenido genera conversaciones, produce más de ese tipo con intención.','Define 2–3 métricas simples para monitorear lo que más importa — no todo, solo lo que mueve la aguja.'], collab:'Puedo ayudarte a entender qué está generando la tracción y a construir un sistema que la haga predecible y escalable.' }
+    }
+  },
+  en: {
+    qOf: (i,n) => `Question ${i} of ${n}`,
+    dims: { C:'Clarity', P:'Presence', V:'Conversion', X:'Context' },
+    nextLbl: 'Next →', lastLbl: 'See results →',
+    resLabel: 'Your communication profile',
+    actLabel: 'What you can do now',
+    collLabel: 'How I can help',
+    contactLbl: 'Get in touch', retryLbl: 'Start over',
+    dimNames: ['Clarity', 'Presence', 'Conversion'],
+    qs: [
+      { text:"When someone asks what you do, what happens?", dim:'C', opts:[
+        {t:"I have a clear, consistent answer that resonates", s:{C:2}},
+        {t:"I explain it well, but I say it differently each time", s:{C:1}},
+        {t:"I struggle to summarize it without sounding generic", s:{C:0}}]},
+      { text:"How well-defined is your ideal client or audience?", dim:'C', opts:[
+        {t:"Very defined: I know who they are, what hurts them, how they think", s:{C:2}},
+        {t:"I have a general sense but not a precise profile", s:{C:1}},
+        {t:"I target several types of clients without much differentiation", s:{C:0}}]},
+      { text:"Do you have a clear differentiator from others in your field?", dim:'C', opts:[
+        {t:"Yes, and I communicate it actively", s:{C:2}},
+        {t:"I think I do, but I haven't articulated it well yet", s:{C:1}},
+        {t:"I struggle to stand out beyond price or years of experience", s:{C:0}}]},
+      { text:"How often do you publish or produce content?", dim:'P', opts:[
+        {t:"Regularly, with a defined calendar or rhythm", s:{P:2}},
+        {t:"When I can or when I have something to say", s:{P:1}},
+        {t:"Rarely or never", s:{P:0}}]},
+      { text:"How many channels do you actively use?", dim:'P', opts:[
+        {t:"2 or more channels I use strategically", s:{P:2}},
+        {t:"One, though not always consistently", s:{P:1}},
+        {t:"I have profiles but don't feed them", s:{P:0}}]},
+      { text:"How would you describe the state of your current content?", dim:'P', opts:[
+        {t:"Coherent, with a defined voice and clear purpose", s:{P:2,C:1}},
+        {t:"Variable — sometimes it works, sometimes I don't know why", s:{P:1}},
+        {t:"Scattered or nonexistent", s:{P:0}}]},
+      { text:"Has your content or digital presence brought you concrete clients or opportunities?", dim:'V', opts:[
+        {t:"Yes, regularly and in a trackable way", s:{V:2}},
+        {t:"Sometimes, but not something I can rely on", s:{V:1}},
+        {t:"Not that I know of, or I have no way to measure it", s:{V:0}}]},
+      { text:"Do you have a mechanism to capture or nurture leads? (newsletter, CTA, form, follow-up)", dim:'V', opts:[
+        {t:"Yes, active and working", s:{V:2}},
+        {t:"I have something basic but don't use it well", s:{V:1}},
+        {t:"No, contact comes through referrals or by chance", s:{V:0}}]},
+      { text:"When someone lands on your profile or site, what typically happens?", dim:'V', opts:[
+        {t:"There's a clear path: they understand what I do and what to do next", s:{V:2,C:1}},
+        {t:"They look around but rarely take action", s:{V:1}},
+        {t:"I don't know — I have no visibility into that", s:{V:0}}]},
+      { text:"Which best describes your current situation?", dim:'X', opts:[
+        {t:"I work independently (freelance, consultant, solopreneur)", s:{}},
+        {t:"I have a small business with a lean team", s:{}},
+        {t:"I'm part of a marketing or communications team", s:{}},
+        {t:"I'm launching something new", s:{}}]},
+      { text:"What's your biggest communication frustration right now?", dim:'X', opts:[
+        {t:"I don't know how to stand out in a crowded market", s:{}},
+        {t:"I produce content but it doesn't convert", s:{}},
+        {t:"I don't have the time or system to be consistent", s:{}},
+        {t:"I don't know where to start", s:{}}]},
+      { text:"What's your most immediate goal?", dim:'X', opts:[
+        {t:"Get clients in the next 1–3 months", s:{}},
+        {t:"Build a solid presence over the medium term", s:{}},
+        {t:"Reposition or redefine my brand", s:{}},
+        {t:"Explore whether I need help with this", s:{}}]}
+    ],
+    profiles: {
+      invisible: { name:"The invisible expert", desc:"You know exactly what you do and who you do it for. The problem is nobody else does. Your offer has real value, but it's not reaching the right people because your presence is minimal or inconsistent.", actions:["Define and document your value proposition in a single sentence. Use it across all your profiles without variation.","Pick one channel and commit to a minimum frequency — publishing once a week consistently beats ten scattered posts.","Turn your expertise into concrete content: a story, a lesson, an opinion. You don't need inspiration, you need a system."], collab:"This is where I can help the most: turning what you know into content that builds authority and presence consistently — without sounding forced or generic." },
+      nocompass: { name:"The active but directionless", desc:"You're producing. You have channels, you have content, there's activity. But if someone asked what all that is for, the answer isn't so clear. Volume isn't compensating for the lack of strategic direction.", actions:["Before publishing your next piece, define its goal: who is it for? What action do you expect it to generate?","Audit your last 10 posts or pieces: which ones worked best? Find the pattern before you keep producing.","Consider reducing channels. Doing one well is worth more than doing four adequately."], collab:"I can help you build a strategy that gives meaning and direction to what you already produce — and redirect that effort toward concrete results." },
+      ready:     { name:"The one who's ready", desc:"You have the foundations. Clarity, presence, and some conversion. You're not starting from scratch — you're at the point where the difference between good and great matters most. What you need now is consistency and scale.", actions:["Document what already works: what type of content generates the most response? Make more of it intentionally.","Invest in systematizing: a clear editorial calendar, reusable templates, a repeatable production flow.","Consider the next level of distribution: collaborations, external publications, SEO targeted at your audience."], collab:"I can help you scale without losing your voice. From content strategy to high-volume execution with real criteria." },
+      starting:  { name:"The one just starting", desc:"You're at the beginning. You might have the business, the service, the expertise — but the communication doesn't reflect any of that yet. That's not a flaw: it's a starting point. The advantage of starting from zero is you can build it right from the start.", actions:["Start with the basics: who do you help?, with what specific problem?, why you and not someone else? Answer those three questions before publishing anything.","Choose one channel. LinkedIn for B2B, Instagram for B2C, whatever you already use most naturally.","Don't wait until everything is perfect to publish. The first goal is to be present and consistent — not impeccable."], collab:"I enjoy working with people building from scratch — I can help you define the voice, the strategy, and the first pieces that will lay the foundation." },
+      traction:  { name:"The one with traction", desc:"Something is working. Clients come in, content converts, there are positive signals. But honestly, you're not sure exactly why it works or how to replicate it systematically. The traction is there — the system isn't yet.", actions:["Document where your best clients come from: which channel, which message, which point in the journey?","Build around what works: if one type of content generates conversations, produce more of that type intentionally.","Define 2–3 simple metrics to monitor what matters most — not everything, just what moves the needle."], collab:"I can help you understand what's generating the traction and build a system that makes it predictable and scalable." }
+    }
+  }
+};
+
+// ── STATE ──
+let answers = {}, currentQ = 0;
+const TOTAL = 12, LETTERS = ['A','B','C','D'];
+
+function getScores() {
+  let C=0,P=0,V=0;
+  Object.values(answers).forEach(a => {
+    if(a.s.C) C+=a.s.C; if(a.s.P) P+=a.s.P; if(a.s.V) V+=a.s.V;
+  });
+  return {C,P,V};
+}
+
+function getProfileId({C,P,V}) {
+  const hC=C>=5, hP=P>=4, hV=V>=4;
+  if(!hC&&!hP&&!hV) return 'starting';
+  if(hC&&!hP&&!hV)  return 'invisible';
+  if(!hC&&hP&&!hV)  return 'nocompass';
+  if(hC&&hP&&hV)    return 'ready';
+  return 'traction';
+}
+
+function renderQ() {
+  const d = DATA[currentLang], q = d.qs[currentQ];
+  document.getElementById('q-counter').textContent = d.qOf(currentQ+1, TOTAL);
+  document.getElementById('q-dim').textContent = d.dims[q.dim];
+  document.getElementById('q-text').textContent = q.text;
+  const wrap = document.getElementById('q-options');
+  wrap.innerHTML = '';
+  q.opts.forEach((opt,i) => {
+    const btn = document.createElement('button');
+    btn.className = 'diag-option' + (answers[currentQ]&&answers[currentQ].i===i?' selected':'');
+    btn.innerHTML = `<span class="diag-option-letter">${LETTERS[i]}</span><span>${opt.t}</span>`;
+    btn.addEventListener('click', () => pick(i, opt.s));
+    wrap.appendChild(btn);
+  });
+  const nxt = document.getElementById('btn-next');
+  nxt.disabled = answers[currentQ]===undefined;
+  nxt.textContent = currentQ===TOTAL-1 ? d.lastLbl : d.nextLbl;
+  document.getElementById('btn-back').style.visibility = currentQ===0?'hidden':'visible';
+  document.getElementById('diag-progress').style.width = (currentQ/TOTAL*100)+'%';
+}
+
+function pick(i,s) {
+  answers[currentQ] = {i,s};
+  document.querySelectorAll('.diag-option').forEach((el,j) => el.classList.toggle('selected',j===i));
+  document.getElementById('btn-next').disabled = false;
+}
+
+function showResult() {
+  document.getElementById('diag-progress').style.width = '100%';
+  const sc = getScores(), d = DATA[currentLang], p = d.profiles[getProfileId(sc)];
+  const mC=8,mP=7,mV=7;
+  document.getElementById('result-content').innerHTML = `
+    <div class="result-header">
+      <span class="result-profile-label">${d.resLabel}</span>
+      <h3 class="result-profile-name">${p.name}</h3>
+      <p class="result-profile-desc">${p.desc}</p>
+      <div class="result-scores">
+        <div class="result-score-item">
+          <div class="result-score-val">${sc.C}/${mC}</div>
+          <div class="result-score-bar-wrap"><div class="result-score-bar" style="width:${sc.C/mC*100}%"></div></div>
+          <div class="result-score-label">${d.dimNames[0]}</div>
+        </div>
+        <div class="result-score-item">
+          <div class="result-score-val">${sc.P}/${mP}</div>
+          <div class="result-score-bar-wrap"><div class="result-score-bar" style="width:${sc.P/mP*100}%"></div></div>
+          <div class="result-score-label">${d.dimNames[1]}</div>
+        </div>
+        <div class="result-score-item">
+          <div class="result-score-val">${sc.V}/${mV}</div>
+          <div class="result-score-bar-wrap"><div class="result-score-bar" style="width:${sc.V/mV*100}%"></div></div>
+          <div class="result-score-label">${d.dimNames[2]}</div>
+        </div>
+      </div>
+    </div>
+    <div class="result-body">
+      <span class="result-section-title">${d.actLabel}</span>
+      <ul class="result-actions">
+        ${p.actions.map((a,i)=>`<li><span class="result-action-num">0${i+1}</span><span>${a}</span></li>`).join('')}
+      </ul>
+      <div class="result-collab">
+        <span class="result-collab-title">${d.collLabel}</span>
+        <p>${p.collab}</p>
+        <div class="result-cta-row">
+          <a href="#contact" class="result-btn-contact" id="r-contact">${d.contactLbl}</a>
+          <button class="result-btn-retry" id="r-retry">${d.retryLbl}</button>
+        </div>
+      </div>
+    </div>`;
+  showScreen('screen-result');
+  document.getElementById('r-retry').addEventListener('click', reset);
+  document.getElementById('r-contact').addEventListener('click', closeModal);
+}
+
+function showScreen(id) {
+  document.querySelectorAll('.diag-screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelector('.diag-panel').scrollTop = 0;
+}
+
+function reset() { answers={}; currentQ=0; showScreen('screen-questions'); renderQ(); }
+
+function openModal() {
+  const m = document.getElementById('diag-modal');
+  m.removeAttribute('hidden');
+  requestAnimationFrame(() => m.classList.add('visible'));
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  const m = document.getElementById('diag-modal');
+  m.classList.remove('visible');
+  setTimeout(() => { m.setAttribute('hidden',''); document.body.style.overflow=''; }, 300);
+}
+
+// Wire all open triggers
+['open-diag','open-diag-2','open-diag-3','open-diag-4','open-diag-5'].forEach(id => {
+  const el = document.getElementById(id);
+  if(el) el.addEventListener('click', e => { e.preventDefault(); openModal(); });
+});
+document.getElementById('nav-diag').addEventListener('click', e => { e.preventDefault(); openModal(); });
+document.getElementById('diag-close').addEventListener('click', closeModal);
+document.getElementById('diag-modal').addEventListener('click', e => { if(e.target===e.currentTarget) closeModal(); });
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+
+document.getElementById('btn-start').addEventListener('click', () => { showScreen('screen-questions'); renderQ(); });
+document.getElementById('btn-next').addEventListener('click', () => {
+  if(answers[currentQ]===undefined) return;
+  currentQ++;
+  if(currentQ>=TOTAL){ showResult(); return; }
+  renderQ();
+});
+document.getElementById('btn-back').addEventListener('click', () => { if(currentQ>0){ currentQ--; renderQ(); } });
+
+// Update signals CTA text on lang switch (innerHTML used for signal items with bold)
+const origApplyLang = applyLang;
+</script>
+</body>
+</html>
